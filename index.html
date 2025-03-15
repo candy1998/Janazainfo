@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janaza Namaaz Form</title>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 400px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .preview-container {
+      margin-top: 20px;
+      display: none;
+    }
+    .preview-container .preview {
+      max-width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+      position: relative;
+      border: 5px solid gold; /* Golden border */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .logo-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-section img {
+      max-height: 60px;
+      object-fit: contain;
+    }
+    .content-section {
+      background-color: #fdf3e3;
+      border: 2px solid #e0c785;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .content-section .row {
+      display: flex;
+      justify-content: flex-start;
+      margin: 5px 0;
+    }
+    .content-section .row label {
+      font-weight: bold;
+      width: 90px; /* Fixed width for labels to align */
+    }
+    .content-section .row span {
+      flex-grow: 1;
+    }
+    #preview-image {
+      max-width: 150px; /* Shrinking uploaded image */
+      max-height: 150px;
+      margin-top: 10px;
+      display: block;
+    }
+    .footer-section {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .golden-title {
+      background-color: #e0c785;
+      color: #000;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .download-button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 8px 20px; /* Reduced size */
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 15px;
+      display: block;
+      width: auto; /* Prevent full width */
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .download-button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center">Janaza Namaaz Form</h2>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+      <label for="info">Additional Info</label>
+      <input type="text" id="info" placeholder="Enter Additional Info">
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="date" id="date">
+    </div>
+    <div class="form-group">
+      <label for="time">Time</label>
+      <input type="time" id="time">
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <select id="location">
+        <option value="Badri Masjid, Itwari">Badri Masjid, Itwari</option>
+        <option value="Badri Masjid, Mominpura">Badri Masjid, Mominpura</option>
+        <option value="Badri Masjid, Ganeshpeth">Badri Masjid, Ganeshpeth</option>
+        <option value="Badri Masjid, Mahal">Badri Masjid, Mahal</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="file">Image</label>
+      <input type="file" id="file">
+    </div>
+    <button onclick="generatePreview()">Generate Preview</button>
+  </div>
+
+  <div class="preview-container">
+    <div id="preview" class="preview">
+      <div class="logo-section">
+        <img src="Jamat Mono Color.jpg" alt="Logo" class="logo">
+        <img src="image.png" alt="Header Text" class="header-text">
+      </div>
+      <div class="golden-title">
+        Regret to Inform Sad Demise of
+      </div>
+      <div class="content-section">
+        <div class="row">
+          <label>Name:</label>
+          <span id="preview-name"></span>
+        </div>
+        <div class="row">
+          <label>Info:</label>
+          <span id="preview-info"></span>
+        </div>
+        <div class="row">
+          <label>Date:</label>
+          <span id="preview-date"></span>
+        </div>
+        <div class="row">
+          <label>Time:</label>
+          <span id="preview-time"></span>
+        </div>
+        <div class="row">
+          <label>Location:</label>
+          <span id="preview-location"></span>
+        </div>
+        <img id="preview-image" alt="Uploaded Image">
+      </div>
+      <div class="footer-section">
+        <p>Tajheezo Takhfeen Committee</p>
+      </div>
+    </div>
+    <button class="download-button" onclick="downloadImage()">Download Image</button>
+  </div>
+
+  <script>
+    function formatTime(time) {
+      const [hours, minutes] = time.split(":");
+      const period = hours >= 12 ? "PM" : "AM";
+      const formattedHours = hours % 12 || 12;
+      return `${formattedHours}:${minutes} ${period}`;
+    }
+
+    function generatePreview() {
+      const name = document.getElementById("name").value;
+      const info = document.getElementById("info").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const location = document.getElementById("location").value;
+      const fileInput = document.getElementById("file").files[0];
+
+      document.getElementById("preview-name").textContent = name;
+      document.getElementById("preview-info").textContent = info;
+      document.getElementById("preview-date").textContent = new Date(date).toDateString();
+      document.getElementById("preview-time").textContent = formatTime(time);
+      document.getElementById("preview-location").textContent = location;
+
+      if (fileInput) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          document.getElementById("preview-image").src = event.target.result;
+        };
+        reader.readAsDataURL(fileInput);
+      }
+
+      document.querySelector(".preview-container").style.display = "block";
+    }
+
+    function downloadImage() {
+      const preview = document.getElementById("preview");
+      html2canvas(preview, {
+  scale: 2,
+  useCORS: true,
+  allowTaint: true,
+}).then((canvas) => {
+  const link = document.createElement("a");
+  link.href = canvas.toDataURL("image/png");
+  link.download = "janaza_preview.png";
+  link.click();
+}).catch((error) => {
+  console.error("Error downloading the image: ", error);
+});
+    }
+  </script>
+</body>
+</html>
