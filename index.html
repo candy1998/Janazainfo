@@ -60,7 +60,7 @@
       border-image: linear-gradient(to right, #d4af37, #f8d66d) 1;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-    .logo-section {
+   .logo-section {
   display: flex;
   flex-direction: column; /* Stack images vertically */
   align-items: center;    /* Center-align images */
@@ -76,6 +76,12 @@
   object-fit: contain;    /* Ensure the image fits inside its container */
   display: block;         /* Prevent inline spacing issues */
 }
+
+/* New rule to make second image in second logo-section smaller */
+.logo-section:nth-of-type(2) img:nth-of-type(2) {
+  max-width: 60%; /* smaller size so it fits better */
+}
+
 
     .golden-title {
       background: linear-gradient(to right, #d4af37, #f8d66d);
