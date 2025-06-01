@@ -62,17 +62,19 @@
     }
     .logo-section {
   display: flex;
-  justify-content: center; /* Center both images horizontally */
-  align-items: center;     /* Align images vertically */
-  flex-wrap: wrap;         /* Allow images to wrap to a new line if needed */
-  gap: 10px;               /* Add spacing between the images */
+  flex-direction: column; /* Stack images vertically */
+  align-items: center;    /* Center-align images */
+  justify-content: center; /* Center content vertically */
+  gap: 10px;              /* Add spacing between the images */
   padding: 10px;
+  max-width: 100%;        /* Prevent section from overflowing */
 }
 
 .logo-section img {
-  max-height: 100px;       /* Restrict the maximum height of the images */
-  max-width: 100%;         /* Ensure images don't overflow their container */
-  object-fit: contain;     /* Keep aspect ratio intact */
+  max-width: 80%;         /* Limit the image width to 80% of the preview container */
+  height: auto;           /* Maintain aspect ratio */
+  object-fit: contain;    /* Ensure the image fits inside its container */
+  display: block;         /* Prevent inline spacing issues */
 }
 
     .golden-title {
@@ -185,6 +187,11 @@
         <img src="Jamat Mono Color.jpg" alt="Logo">
         <img src="image.png" alt="Header Text">
       </div>
+      <div class="logo-section">
+  <img src="Jamat Mono Color.jpg" alt="Logo">
+  <img src="/mnt/data/ea9560ed-a1f0-4fc2-a6d9-a43add67956b.png" alt="Header Text">
+</div>
+
       <div class="golden-title">
         Regret to Inform Sad Demise of
       </div>
