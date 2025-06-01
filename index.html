@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Janaza Namaaz Form</title>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <style>
@@ -54,28 +54,44 @@
       max-width: 400px;
       margin: 0 auto;
       background: white;
-      border-radius: 10px;
-      text-align: left;
       border: 5px solid;
       border-image: linear-gradient(to right, #d4af37, #f8d66d) 1;
+      border-radius: 10px;
+      text-align: left;
+      position: relative;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     .logo-section {
-      display: flex;
-      flex-direction: column; /* Stack images vertically */
-      align-items: center;    /* Center-align images */
-      justify-content: center; /* Center content vertically */
-      gap: 10px;              /* Add spacing between the images */
-      padding: 10px;
-      max-width: 100%;        /* Prevent section from overflowing */
-    }
-    .logo-section img {
-      max-width: 80%;         /* Limit the image width to 80% of the preview container */
-      height: auto;           /* Maintain aspect ratio */
-      object-fit: contain;    /* Ensure the image fits inside its container */
-      display: block;         /* Prevent inline spacing issues */
-    }
-    .golden-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+  .logo-section img {
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+ .logo-section {
+  display: flex;
+  justify-content: space-between; /* Spaces items across the row */
+  align-items: center; /* Centers items vertically */
+  padding: 10px 20px;
+  gap: 20px; /* Adds spacing between the logo and text image */
+}
+
+.logo-section img:first-child {
+  max-width: 100px; /* Adjust logo size */
+  max-height: 100px;
+  flex-shrink: 0; /* Prevents logo from shrinking */
+}
+
+.logo-section img:last-child {
+  max-width: calc(100% - 120px); /* Ensures the text image fits within the remaining space */
+  height: auto;
+  object-fit: contain; /* Maintains aspect ratio */
+}
+   .golden-title {
       background: linear-gradient(to right, #d4af37, #f8d66d);
       color: black;
       padding: 15px 10px;
@@ -120,6 +136,15 @@
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
     }
+    .net-design {
+      margin-top: 10px;
+      text-align: center;
+    }
+    .net-design img {
+      width: 100%;
+      max-height: 50px;
+      height: auto;
+    }
     .download-button {
       background-color: #28a745;
       color: white;
@@ -144,37 +169,38 @@
     <h2 class="text-center">Janaza Namaaz Form</h2>
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" id="name" placeholder="Enter Name" />
+      <input type="text" id="name" placeholder="Enter Name">
     </div>
     <div class="form-group">
       <label for="info">Additional Info</label>
-      <input type="text" id="info" placeholder="Enter Additional Info" />
+      <input type="text" id="info" placeholder="Enter Additional Info">
     </div>
     <div class="form-group">
       <label for="date">Date</label>
-      <input type="date" id="date" />
+      <input type="date" id="date">
     </div>
     <div class="form-group">
       <label for="time">Namaaz Time</label>
-      <input type="time" id="time" />
+      <input type="time" id="time">
     </div>
     <div class="form-group">
       <label for="sipara-time">Sipara Time</label>
-      <input type="time" id="sipara-time" />
+      <input type="time" id="sipara-time">
     </div>
     <div class="form-group">
-      <label for="location">Location</label>
-      <select id="location">
-        <option value="Badri Masjid">Badri Masjid</option>
+  <label for="location">Location</label>
+  <select id="location">
+    <option value="" selected disabled>Select Location</option>
+    <option value="Badri Masjid">Badri Masjid</option>
         <option value="Najmi Masjid">Najmi Masjid</option>
         <option value="Burhani Masjid">Burhani Masjid</option>
         <option value="Fakhri Masjid">Fakhri Masjid</option>
         <option value="Qademi Masjid">Qademi Masjid</option>
-      </select>
-    </div>
+  </select>
+</div>
     <div class="form-group">
       <label for="file">Image</label>
-      <input type="file" id="file" />
+      <input type="file" id="file">
     </div>
     <button onclick="generatePreview()">Generate Preview</button>
   </div>
@@ -182,71 +208,111 @@
   <div class="preview-container">
     <div id="preview" class="preview">
       <div class="logo-section">
-        <img src="Jamat Mono Color.jpg" alt="Logo" />
-        <img src="image.png" alt="Header Text" />
+        <img src="Jamat Mono Color.jpg" alt="Logo">
+        <img src="image.png" alt="Header Text">
       </div>
-
-      <div class="golden-title">Regret to Inform Sad Demise of</div>
+      <div class="golden-title">
+        Regret to Inform Sad Demise of
+      </div>
       <div class="content-section">
-        <div class="row"><label>Name:</label><span id="preview-name"></span></div>
-        <div class="row"><label>Info:</label><span id="preview-info"></span></div>
-        <div class="row"><label>Date:</label><span id="preview-date"></span></div>
-        <div class="row"><label>Namaaz Time:</label><span id="preview-time"></span></div>
-        <div class="row" id="sipara-row"><label>Sipara Time:</label><span id="preview-sipara-time"></span></div>
-        <div class="row"><label>Location:</label><span id="preview-location"></span></div>
-        <img id="preview-image" alt="Uploaded Image" />
+        <div class="row">
+          <label>Name:</label>
+          <span id="preview-name"></span>
+        </div>
+        <div class="row">
+          <label>Info:</label>
+          <span id="preview-info"></span>
+        </div>
+        <div class="row">
+          <label>Date:</label>
+          <span id="preview-date"></span>
+        </div>
+        <div class="row">
+          <label>Namaaz Time:</label>
+          <span id="preview-time"></span>
+        </div>
+        <div class="row" id="sipara-row">
+          <label>Sipara Time:</label>
+          <span id="preview-sipara-time"></span>
+        </div>
+        <div class="row">
+          <label>Location:</label>
+          <span id="preview-location"></span>
+        </div>
+        <img id="preview-image" alt="Uploaded Image">
       </div>
-      <div class="footer-section">Tajheezo Takhfeen Committee</div>
+      <div class="footer-section">
+        Tajheezo Takhfeen Committee (Itwari)
+      </div>
+      <div class="net-design">
+        <img src="net-design.png" alt="Net Design">
+      </div>
     </div>
     <button class="download-button" onclick="downloadImage()">Download Image</button>
   </div>
 
-  <script>
-    function formatTime(time) {
-      if (!time) return "N/A";
-      const [hours, minutes] = time.split(":");
-      const period = hours >= 12 ? "PM" : "AM";
-      const formattedHours = hours % 12 || 12;
-      return `${formattedHours}:${minutes} ${period}`;
-    }
+<script>
+  function formatTime(time) {
+    const [hours, minutes] = time.split(":");
+    const period = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+    return `${formattedHours}:${minutes} ${period}`;
+  }
 
-    function generatePreview() {
-      const name = document.getElementById("name").value || "N/A";
-      const info = document.getElementById("info").value || "N/A";
-      const date = document.getElementById("date").value || "N/A";
-      const time = document.getElementById("time").value;
-      const siparaTime = document.getElementById("sipara-time").value;
-      const location = document.getElementById("location").value || "N/A";
-      const fileInput = document.getElementById("file").files[0];
+  function generatePreview() {
+    const name = document.getElementById("name").value || "N/A";
+    const info = document.getElementById("info").value || "N/A";
+    const date = document.getElementById("date").value || "N/A";
+    const time = document.getElementById("time").value || "N/A";
+     const siparaTime = document.getElementById("sipara-time").value;
+    const location = document.getElementById("location").value || "N/A";
+    const fileInput = document.getElementById("file").files[0];
 
-      document.getElementById("preview-name").textContent = name;
-      document.getElementById("preview-info").textContent = info;
-      document.getElementById("preview-date").textContent =
-        date !== "N/A" ? new Date(date).toDateString() : "N/A";
-      document.getElementById("preview-time").textContent = formatTime(time);
-      document.getElementById("preview-sipara-time").textContent = formatTime(siparaTime);
-      document.getElementById("preview-location").textContent = location;
+    document.getElementById("preview-name").textContent = name;
+    document.getElementById("preview-info").textContent = info;
+    document.getElementById("preview-date").textContent = date !== "N/A" ? new Date(date).toDateString() : "N/A";
+    document.getElementById("preview-time").textContent = time !== "N/A" ? formatTime(time) : "N/A";
+    document.getElementById("preview-location").textContent = location;
 
-      if (fileInput) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          document.getElementById("preview-image").src = e.target.result;
-        };
-        reader.readAsDataURL(fileInput);
+     if (siparaTime) {
+        document.getElementById("preview-sipara-time").textContent = formatTime(siparaTime);
+        document.getElementById("sipara-row").style.display = "flex";
+      } else {
+        document.getElementById("sipara-row").style.display = "none";
       }
 
-      document.querySelector(".preview-container").style.display = "block";
+    const previewImage = document.getElementById("preview-image");
+    if (fileInput) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        previewImage.src = event.target.result;
+      };
+      reader.readAsDataURL(fileInput);
+    } else {
+      previewImage.src = "";
+      previewImage.alt = "No image provided";
     }
 
-    function downloadImage() {
-      const previewElement = document.getElementById("preview");
-      html2canvas(previewElement).then((canvas) => {
+    document.querySelector(".preview-container").style.display = "block";
+  }
+
+  function downloadImage() {
+    const preview = document.getElementById("preview");
+    html2canvas(preview, {
+      scale: 2,
+      useCORS: true,
+      allowTaint: true,
+    })
+      .then((canvas) => {
         const link = document.createElement("a");
-        link.download = "preview.png";
         link.href = canvas.toDataURL("image/png");
+        link.download = "janaza_preview.png";
         link.click();
+      })
+      .catch((error) => {
+        console.error("Error downloading the image: ", error);
       });
-    }
-  </script>
+  }
+</script>
 </body>
 </html>
