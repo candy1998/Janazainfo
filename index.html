@@ -184,6 +184,10 @@
       <input type="time" id="time">
     </div>
     <div class="form-group">
+      <label for="sipara-time">Sipara Time</label>
+      <input type="time" id="sipara-time">
+    </div>
+    <div class="form-group">
   <label for="location">Location</label>
   <select id="location">
     <option value="" selected disabled>Select Location</option>
@@ -227,6 +231,10 @@
           <label>Namaaz Time:</label>
           <span id="preview-time"></span>
         </div>
+        <div class="row" id="sipara-row">
+          <label>Sipara Time:</label>
+          <span id="preview-sipara-time"></span>
+        </div>
         <div class="row">
           <label>Location:</label>
           <span id="preview-location"></span>
@@ -256,6 +264,7 @@
     const info = document.getElementById("info").value || "N/A";
     const date = document.getElementById("date").value || "N/A";
     const time = document.getElementById("time").value || "N/A";
+     const siparaTime = document.getElementById("sipara-time").value;
     const location = document.getElementById("location").value || "N/A";
     const fileInput = document.getElementById("file").files[0];
 
@@ -264,6 +273,13 @@
     document.getElementById("preview-date").textContent = date !== "N/A" ? new Date(date).toDateString() : "N/A";
     document.getElementById("preview-time").textContent = time !== "N/A" ? formatTime(time) : "N/A";
     document.getElementById("preview-location").textContent = location;
+
+     if (siparaTime) {
+        document.getElementById("preview-sipara-time").textContent = formatTime(siparaTime);
+        document.getElementById("sipara-row").style.display = "flex";
+      } else {
+        document.getElementById("sipara-row").style.display = "none";
+      }
 
     const previewImage = document.getElementById("preview-image");
     if (fileInput) {
