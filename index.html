@@ -12,6 +12,7 @@
       margin: 0;
       padding: 0;
     }
+
     .container {
       max-width: 400px;
       margin: 20px auto;
@@ -20,14 +21,17 @@
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
+
     .form-group {
       margin-bottom: 15px;
     }
+
     .form-group label {
       display: block;
       font-weight: bold;
       margin-bottom: 5px;
     }
+
     .form-group input,
     .form-group select {
       width: 100%;
@@ -35,6 +39,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+
     button {
       background-color: #007bff;
       color: white;
@@ -43,13 +48,16 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #0056b3;
     }
+
     .preview-container {
       margin-top: 20px;
       display: none;
     }
+
     .preview-container .preview {
       max-width: 400px;
       margin: 0 auto;
@@ -61,19 +69,29 @@
       border: 5px solid gold;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
+
     .logo-section {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
     }
+
     .logo-section img {
-      max-height: 80px;
       object-fit: contain;
     }
+
     .large-logo {
-  height: 80px; /* or 90px if you want it even bigger */
-  width: auto;
-}
+      height: 80px;
+      width: auto;
+    }
+
+    .arabic-text-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 10px auto;
+      max-height: 60px;
+    }
 
     .content-section {
       background-color: #fdf3e3;
@@ -82,27 +100,31 @@
       border-radius: 10px;
       margin-top: 10px;
     }
+
     .content-section .row {
       display: flex;
       justify-content: flex-start;
       margin: 5px 0;
     }
+
     .content-section .row label {
       font-weight: bold;
       width: 90px;
     }
+
     .content-section .row span {
       flex-grow: 1;
     }
+
     #preview-image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border: 5px solid black;
-  border-radius: 10px;
-  display: block;
-  margin: 10px auto 0 auto;
-}
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border: 5px solid black;
+      border-radius: 10px;
+      display: block;
+      margin: 10px auto 0 auto;
+    }
 
     .footer-section {
       background-color: #4caf50;
@@ -112,9 +134,10 @@
       border-radius: 5px;
       text-align: center;
       font-size: 14px;
-      line-height: 1.4; /* Add this line */
-  white-space: normal; /* Ensure text wraps */
+      line-height: 1.4;
+      white-space: normal;
     }
+
     .golden-title {
       background-color: #e0c785;
       color: #000;
@@ -125,6 +148,7 @@
       font-weight: bold;
       margin-bottom: 15px;
     }
+
     .download-button {
       background-color: #28a745;
       color: white;
@@ -139,6 +163,7 @@
       margin-left: auto;
       margin-right: auto;
     }
+
     .download-button:hover {
       background-color: #218838;
     }
@@ -188,6 +213,7 @@
     <div id="preview" class="preview">
       <div class="logo-section">
         <img src="Jamat Mono Color.jpg" alt="Logo" class="logo large-logo">
+        <img src="arabic-text.png" alt="Arabic Text" class="arabic-text-image">
         <img src="image.png" alt="Header Text" class="header-text">
       </div>
       <div class="golden-title">
@@ -248,7 +274,7 @@
       document.getElementById("preview-info").textContent = info;
       document.getElementById("preview-date").textContent = new Date(date).toDateString();
       document.getElementById("preview-time").textContent = time ? formatTime(time) : "";
-      
+
       if (siparaTime) {
         document.getElementById("preview-sipara-time").textContent = formatTime(siparaTime);
         document.getElementById("sipara-row").style.display = "flex";
