@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Janaza Namaaz Form</title>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <style>
@@ -54,52 +54,33 @@
       max-width: 400px;
       margin: 0 auto;
       background: white;
-      border: 5px solid;
-      border-image: linear-gradient(to right, #d4af37, #f8d66d) 1;
+      padding: 20px;
       border-radius: 10px;
       text-align: left;
       position: relative;
+      border: 5px solid gold;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-
-    /* Updated logo-section CSS */
     .logo-section {
       display: flex;
-      justify-content: flex-start; /* align left */
+      justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
-      gap: 20px; /* spacing between images */
     }
-
-    .logo-section img:first-child {
-      max-width: 120px;
-      max-height: 100px;
-      flex-shrink: 0;
-    }
-
-    .logo-section img:last-child {
-      max-width: calc(100% - 140px);
-      height: auto;
+    .logo-section img {
+      max-height: 60px;
       object-fit: contain;
-    }
-
-    .golden-title {
-      background: linear-gradient(to right, #d4af37, #f8d66d);
-      color: black;
-      padding: 15px 10px;
-      font-size: 18px;
-      font-weight: bold;
-      text-align: center;
     }
     .content-section {
       background-color: #fdf3e3;
-      padding: 20px;
-      border-top: 2px solid #d4af37;
+      border: 2px solid #e0c785;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
     }
     .content-section .row {
       display: flex;
       justify-content: flex-start;
-      margin: 10px 0;
+      margin: 5px 0;
     }
     .content-section .row label {
       font-weight: bold;
@@ -107,35 +88,30 @@
     }
     .content-section .row span {
       flex-grow: 1;
-      font-weight: bold;
     }
     #preview-image {
       max-width: 150px;
       max-height: 150px;
-      margin: 20px auto;
+      margin-top: 10px;
       display: block;
-      border: 5px solid;
-      border-image: linear-gradient(to right, #d4af37, #f8d66d) 1;
-      border-radius: 10px;
     }
     .footer-section {
-      background-color: #b2d8b2;
-      color: #333;
-      font-size: 16px;
-      font-weight: bold;
+      background-color: #4caf50;
+      color: white;
       padding: 10px;
-      text-align: center;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-    }
-    .net-design {
       margin-top: 10px;
+      border-radius: 5px;
       text-align: center;
     }
-    .net-design img {
-      width: 100%;
-      max-height: 50px;
-      height: auto;
+    .golden-title {
+      background-color: #e0c785;
+      color: #000;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
     }
     .download-button {
       background-color: #28a745;
@@ -161,28 +137,27 @@
     <h2 class="text-center">Janaza Namaaz Form</h2>
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" id="name" placeholder="Enter Name" />
+      <input type="text" id="name" placeholder="Enter Name">
     </div>
     <div class="form-group">
       <label for="info">Additional Info</label>
-      <input type="text" id="info" placeholder="Enter Additional Info" />
+      <input type="text" id="info" placeholder="Enter Additional Info">
     </div>
     <div class="form-group">
       <label for="date">Date</label>
-      <input type="date" id="date" />
+      <input type="date" id="date">
     </div>
     <div class="form-group">
       <label for="time">Namaaz Time</label>
-      <input type="time" id="time" />
+      <input type="time" id="time">
     </div>
     <div class="form-group">
       <label for="sipara-time">Sipara Time</label>
-      <input type="time" id="sipara-time" />
+      <input type="time" id="sipara-time">
     </div>
     <div class="form-group">
       <label for="location">Location</label>
       <select id="location">
-        <option value="" selected disabled>Select Location</option>
         <option value="Badri Masjid">Badri Masjid</option>
         <option value="Najmi Masjid">Najmi Masjid</option>
         <option value="Burhani Masjid">Burhani Masjid</option>
@@ -192,7 +167,7 @@
     </div>
     <div class="form-group">
       <label for="file">Image</label>
-      <input type="file" id="file" />
+      <input type="file" id="file">
     </div>
     <button onclick="generatePreview()">Generate Preview</button>
   </div>
@@ -200,10 +175,12 @@
   <div class="preview-container">
     <div id="preview" class="preview">
       <div class="logo-section">
-        <img src="Jamat Mono Color.jpg" alt="Logo" />
-        <img src="image.png" alt="Header Text" />
+        <img src="Jamat Mono Color.jpg" alt="Logo" class="logo">
+        <img src="image.png" alt="Header Text" class="header-text">
       </div>
-      <div class="golden-title">Regret to Inform Sad Demise of</div>
+      <div class="golden-title">
+        Regret to Inform Sad Demise of
+      </div>
       <div class="content-section">
         <div class="row">
           <label>Name:</label>
@@ -229,11 +206,10 @@
           <label>Location:</label>
           <span id="preview-location"></span>
         </div>
-        <img id="preview-image" alt="Uploaded Image" />
+        <img id="preview-image" alt="Uploaded Image">
       </div>
-      <div class="footer-section">Tajheezo Takhfeen Committee (Itwari)</div>
-      <div class="net-design">
-        <img src="net-design.png" alt="Net Design" />
+      <div class="footer-section">
+        <p>Tajheezo Takhfeen Committee</p>
       </div>
     </div>
     <button class="download-button" onclick="downloadImage()">Download Image</button>
@@ -248,40 +224,34 @@
     }
 
     function generatePreview() {
-      const name = document.getElementById("name").value || "N/A";
-      const info = document.getElementById("info").value || "N/A";
-      const date = document.getElementById("date").value || "N/A";
-      const time = document.getElementById("time").value || "N/A";
+      const name = document.getElementById("name").value;
+      const info = document.getElementById("info").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
       const siparaTime = document.getElementById("sipara-time").value;
-      const location = document.getElementById("location").value || "N/A";
+      const location = document.getElementById("location").value;
       const fileInput = document.getElementById("file").files[0];
 
       document.getElementById("preview-name").textContent = name;
       document.getElementById("preview-info").textContent = info;
-      document.getElementById("preview-date").textContent =
-        date !== "N/A" ? new Date(date).toDateString() : "N/A";
-      document.getElementById("preview-time").textContent =
-        time !== "N/A" ? formatTime(time) : "N/A";
-      document.getElementById("preview-location").textContent = location;
-
+      document.getElementById("preview-date").textContent = new Date(date).toDateString();
+      document.getElementById("preview-time").textContent = time ? formatTime(time) : "";
+      
       if (siparaTime) {
-        document.getElementById("preview-sipara-time").textContent =
-          formatTime(siparaTime);
+        document.getElementById("preview-sipara-time").textContent = formatTime(siparaTime);
         document.getElementById("sipara-row").style.display = "flex";
       } else {
         document.getElementById("sipara-row").style.display = "none";
       }
 
-      const previewImage = document.getElementById("preview-image");
+      document.getElementById("preview-location").textContent = location;
+
       if (fileInput) {
         const reader = new FileReader();
         reader.onload = (event) => {
-          previewImage.src = event.target.result;
+          document.getElementById("preview-image").src = event.target.result;
         };
         reader.readAsDataURL(fileInput);
-      } else {
-        previewImage.src = "";
-        previewImage.alt = "No image provided";
       }
 
       document.querySelector(".preview-container").style.display = "block";
@@ -293,16 +263,14 @@
         scale: 2,
         useCORS: true,
         allowTaint: true,
-      })
-        .then((canvas) => {
-          const link = document.createElement("a");
-          link.href = canvas.toDataURL("image/png");
-          link.download = "janaza_preview.png";
-          link.click();
-        })
-        .catch((error) => {
-          console.error("Error downloading the image: ", error);
-        });
+      }).then((canvas) => {
+        const link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download = "janaza_preview.png";
+        link.click();
+      }).catch((error) => {
+        console.error("Error downloading the image: ", error);
+      });
     }
   </script>
 </body>
