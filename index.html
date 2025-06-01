@@ -54,44 +54,24 @@
       max-width: 400px;
       margin: 0 auto;
       background: white;
-      border: 5px solid;
-      border-image: linear-gradient(to right, #d4af37, #f8d66d) 1;
       border-radius: 10px;
       text-align: left;
-      position: relative;
+      border: 5px solid;
+      border-image: linear-gradient(to right, #d4af37, #f8d66d) 1;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     .logo-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    gap: 10px;
-  }
-  .logo-section img {
-    object-fit: contain;
-    flex-shrink: 0;
-  }
- .logo-section {
-  display: flex;
-  justify-content: space-between; /* Spaces items across the row */
-  align-items: center; /* Centers items vertically */
-  padding: 10px 20px;
-  gap: 20px; /* Adds spacing between the logo and text image */
-}
-
-.logo-section img:first-child {
-  max-width: 100px; /* Adjust logo size */
-  max-height: 100px;
-  flex-shrink: 0; /* Prevents logo from shrinking */
-}
-
-.logo-section img:last-child {
-  max-width: calc(100% - 120px); /* Ensures the text image fits within the remaining space */
-  height: auto;
-  object-fit: contain; /* Maintains aspect ratio */
-}
-   .golden-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 10px;
+    }
+    .logo-section img {
+      object-fit: contain;
+      max-height: 100px;
+    }
+    .golden-title {
       background: linear-gradient(to right, #d4af37, #f8d66d);
       color: black;
       padding: 15px 10px;
@@ -136,15 +116,6 @@
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
     }
-    .net-design {
-      margin-top: 10px;
-      text-align: center;
-    }
-    .net-design img {
-      width: 100%;
-      max-height: 50px;
-      height: auto;
-    }
     .download-button {
       background-color: #28a745;
       color: white;
@@ -188,16 +159,15 @@
       <input type="time" id="sipara-time">
     </div>
     <div class="form-group">
-  <label for="location">Location</label>
-  <select id="location">
-    <option value="" selected disabled>Select Location</option>
-    <option value="Badri Masjid">Badri Masjid</option>
+      <label for="location">Location</label>
+      <select id="location">
+        <option value="Badri Masjid">Badri Masjid</option>
         <option value="Najmi Masjid">Najmi Masjid</option>
         <option value="Burhani Masjid">Burhani Masjid</option>
         <option value="Fakhri Masjid">Fakhri Masjid</option>
         <option value="Qademi Masjid">Qademi Masjid</option>
-  </select>
-</div>
+      </select>
+    </div>
     <div class="form-group">
       <label for="file">Image</label>
       <input type="file" id="file">
@@ -215,104 +185,64 @@
         Regret to Inform Sad Demise of
       </div>
       <div class="content-section">
-        <div class="row">
-          <label>Name:</label>
-          <span id="preview-name"></span>
-        </div>
-        <div class="row">
-          <label>Info:</label>
-          <span id="preview-info"></span>
-        </div>
-        <div class="row">
-          <label>Date:</label>
-          <span id="preview-date"></span>
-        </div>
-        <div class="row">
-          <label>Namaaz Time:</label>
-          <span id="preview-time"></span>
-        </div>
-        <div class="row" id="sipara-row">
-          <label>Sipara Time:</label>
-          <span id="preview-sipara-time"></span>
-        </div>
-        <div class="row">
-          <label>Location:</label>
-          <span id="preview-location"></span>
-        </div>
+        <div class="row"><label>Name:</label><span id="preview-name"></span></div>
+        <div class="row"><label>Info:</label><span id="preview-info"></span></div>
+        <div class="row"><label>Date:</label><span id="preview-date"></span></div>
+        <div class="row"><label>Namaaz Time:</label><span id="preview-time"></span></div>
+        <div class="row" id="sipara-row"><label>Sipara Time:</label><span id="preview-sipara-time"></span></div>
+        <div class="row"><label>Location:</label><span id="preview-location"></span></div>
         <img id="preview-image" alt="Uploaded Image">
       </div>
-      <div class="footer-section">
-        Tajheezo Takhfeen Committee (Itwari)
-      </div>
-      <div class="net-design">
-        <img src="net-design.png" alt="Net Design">
-      </div>
+      <div class="footer-section">Tajheezo Takhfeen Committee</div>
     </div>
     <button class="download-button" onclick="downloadImage()">Download Image</button>
   </div>
 
-<script>
-  function formatTime(time) {
-    const [hours, minutes] = time.split(":");
-    const period = hours >= 12 ? "PM" : "AM";
-    const formattedHours = hours % 12 || 12;
-    return `${formattedHours}:${minutes} ${period}`;
-  }
-
-  function generatePreview() {
-    const name = document.getElementById("name").value || "N/A";
-    const info = document.getElementById("info").value || "N/A";
-    const date = document.getElementById("date").value || "N/A";
-    const time = document.getElementById("time").value || "N/A";
-     const siparaTime = document.getElementById("sipara-time").value;
-    const location = document.getElementById("location").value || "N/A";
-    const fileInput = document.getElementById("file").files[0];
-
-    document.getElementById("preview-name").textContent = name;
-    document.getElementById("preview-info").textContent = info;
-    document.getElementById("preview-date").textContent = date !== "N/A" ? new Date(date).toDateString() : "N/A";
-    document.getElementById("preview-time").textContent = time !== "N/A" ? formatTime(time) : "N/A";
-    document.getElementById("preview-location").textContent = location;
-
-     if (siparaTime) {
-        document.getElementById("preview-sipara-time").textContent = formatTime(siparaTime);
-        document.getElementById("sipara-row").style.display = "flex";
-      } else {
-        document.getElementById("sipara-row").style.display = "none";
-      }
-
-    const previewImage = document.getElementById("preview-image");
-    if (fileInput) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        previewImage.src = event.target.result;
-      };
-      reader.readAsDataURL(fileInput);
-    } else {
-      previewImage.src = "";
-      previewImage.alt = "No image provided";
+  <script>
+    function formatTime(time) {
+      if (!time) return "N/A";
+      const [hours, minutes] = time.split(":");
+      const period = hours >= 12 ? "PM" : "AM";
+      const formattedHours = hours % 12 || 12;
+      return `${formattedHours}:${minutes} ${period}`;
     }
 
-    document.querySelector(".preview-container").style.display = "block";
-  }
+    function generatePreview() {
+      const name = document.getElementById("name").value || "N/A";
+      const info = document.getElementById("info").value || "N/A";
+      const date = document.getElementById("date").value || "N/A";
+      const time = document.getElementById("time").value;
+      const siparaTime = document.getElementById("sipara-time").value;
+      const location = document.getElementById("location").value || "N/A";
+      const fileInput = document.getElementById("file").files[0];
 
-  function downloadImage() {
-    const preview = document.getElementById("preview");
-    html2canvas(preview, {
-      scale: 2,
-      useCORS: true,
-      allowTaint: true,
-    })
-      .then((canvas) => {
+      document.getElementById("preview-name").textContent = name;
+      document.getElementById("preview-info").textContent = info;
+      document.getElementById("preview-date").textContent = date !== "N/A" ? new Date(date).toDateString() : "N/A";
+      document.getElementById("preview-time").textContent = formatTime(time);
+      document.getElementById("preview-sipara-time").textContent = formatTime(siparaTime);
+      document.getElementById("preview-location").textContent = location;
+
+      if (fileInput) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById("preview-image").src = e.target.result;
+        };
+        reader.readAsDataURL(fileInput);
+      }
+
+      document.querySelector(".preview-container").style.display = "block";
+    }
+
+    function downloadImage() {
+      const previewElement = document.getElementById("preview");
+      html2canvas(previewElement).then((canvas) => {
         const link = document.createElement("a");
+        link.download = "preview.png";
         link.href = canvas.toDataURL("image/png");
-        link.download = "janaza_preview.png";
         link.click();
-      })
-      .catch((error) => {
-        console.error("Error downloading the image: ", error);
       });
-  }
-</script>
+    }
+  </script>
 </body>
 </html>
