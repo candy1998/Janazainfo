@@ -33,11 +33,16 @@
     }
 
     .form-group input,
-    .form-group select {
+    .form-group select,
+    .form-group textarea {
       width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
+    }
+
+    textarea {
+      resize: vertical;
     }
 
     button {
@@ -187,7 +192,9 @@
   <div class="container">
     <h2 class="text-center">Janaza Namaaz Form</h2>
     <div class="form-group"><label for="name">Name</label><input type="text" id="name" placeholder="Enter Name"></div>
-    <div class="form-group"><label for="info">Additional Info</label><input type="text" id="info" placeholder="Enter Additional Info"></div>
+    <div class="form-group"><label for="info">Additional Info</label>
+      <textarea id="info" rows="4" placeholder="Enter Additional Info"></textarea>
+    </div>
     <div class="form-group"><label for="date">Date</label><input type="date" id="date"></div>
     <div class="form-group"><label for="time">Namaaz Time</label><input type="time" id="time"></div>
     <div class="form-group"><label for="sipara-time">Sipara Time</label><input type="time" id="sipara-time"></div>
