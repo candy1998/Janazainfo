@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Janaza Namaaz Form</title>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <style>
@@ -72,27 +72,26 @@
 
     .logo-section {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row;
+      align-items: flex-start;
+      margin-bottom: 20px;
     }
 
-    .large-logo {
+    .logo-left img {
       height: 80px;
       width: auto;
     }
 
-    .arabic-text-image {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin: 15px auto 10px auto;
-      max-height: 80px;
+    .logo-right {
+      display: flex;
+      flex-direction: column;
+      margin-left: 15px;
     }
 
-    .header-text {
-      max-height: 40px;
-      object-fit: contain;
-      margin-bottom: 10px;
+    .logo-right img {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 5px;
     }
 
     .content-section {
@@ -107,18 +106,17 @@
       display: flex;
       justify-content: flex-start;
       margin: 5px 0;
-      flex-wrap: wrap;
     }
 
     .content-section .row label {
       font-weight: bold;
       width: 90px;
+      flex-shrink: 0;
     }
 
     .content-section .row span {
       flex-grow: 1;
-      word-break: break-word;
-      white-space: pre-wrap;
+      white-space: pre-wrap; /* To wrap multi-line text in Info */
     }
 
     #preview-image {
@@ -217,13 +215,15 @@
   <div class="preview-container">
     <div id="preview" class="preview">
       <div class="logo-section">
-        <img src="Jamat Mono Color.jpg" alt="Logo" class="logo large-logo">
-        <img src="ayat.png" alt="Arabic Text" class="arabic-text-image">
-        <img src="image.png" alt="Header Text" class="header-text">
+        <div class="logo-left">
+          <img src="Jamat Mono Color.jpg" alt="Logo">
+        </div>
+        <div class="logo-right">
+          <img src="ayat.png" alt="Ayat Image">
+          <img src="image.png" alt="Banner Text Image">
+        </div>
       </div>
-      <div class="golden-title">
-        Regret to Inform Sad Demise of
-      </div>
+      <div class="golden-title">Regret to Inform Sad Demise of</div>
       <div class="content-section">
         <div class="row">
           <label>Name:</label>
