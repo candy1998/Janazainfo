@@ -163,7 +163,7 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .content-section .row {
+   .content-section .row {
   display: flex;
   margin: 5px 0;
   align-items: flex-start;
@@ -171,20 +171,15 @@
 
 .content-section .row label {
   font-weight: bold;
-  width: 90px;
+  min-width: 90px;
   flex-shrink: 0;
 }
 
 .content-section .row span {
-  flex-grow: 1;
+  flex: 1;
   white-space: pre-wrap;
-  word-wrap: break-word;
-  text-indent: -90px;       /* negative indent */
-  padding-left: 90px;       /* offset to align lines */
-  display: block;
+  word-break: break-word;
 }
-
-
     .download-button:hover {
       background-color: #218838;
     }
