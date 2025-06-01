@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Janaza Namaaz Form</title>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <style>
@@ -60,29 +60,28 @@
       border-image: linear-gradient(to right, #d4af37, #f8d66d) 1;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-   .logo-section {
-  display: flex;
-  flex-direction: column; /* Stack images vertically */
-  align-items: center;    /* Center-align images */
-  justify-content: center; /* Center content vertically */
-  gap: 10px;              /* Add spacing between the images */
-  padding: 10px;
-  max-width: 100%;        /* Prevent section from overflowing */
-}
-
-.logo-section img {
-  max-width: 80%;         /* Limit the image width to 80% of the preview container */
-  height: auto;           /* Maintain aspect ratio */
-  object-fit: contain;    /* Ensure the image fits inside its container */
-  display: block;         /* Prevent inline spacing issues */
-}
-
-/* New rule to make second image in second logo-section smaller */
-.logo-section:nth-of-type(2) img:nth-of-type(2) {
-  max-width: 60%; /* smaller size so it fits better */
-}
-
-
+    .logo-section {
+      display: flex;
+      flex-direction: column; /* Stack images vertically */
+      align-items: center;    /* Center-align images */
+      justify-content: center; /* Center content vertically */
+      gap: 10px;              /* Add spacing between the images */
+      padding: 10px;
+      max-width: 100%;        /* Prevent section from overflowing */
+    }
+    .logo-section img {
+      max-width: 80%;         /* Limit the image width to 80% of the preview container */
+      height: auto;           /* Maintain aspect ratio */
+      object-fit: contain;    /* Ensure the image fits inside its container */
+      display: block;         /* Prevent inline spacing issues */
+    }
+    /* Make the second image in the second logo-section smaller */
+    .logo-section:nth-of-type(2) img:nth-of-type(2) {
+      max-width: 50%;
+      max-height: 90px;
+      height: auto;
+      width: auto;
+    }
     .golden-title {
       background: linear-gradient(to right, #d4af37, #f8d66d);
       color: black;
@@ -152,23 +151,23 @@
     <h2 class="text-center">Janaza Namaaz Form</h2>
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" id="name" placeholder="Enter Name">
+      <input type="text" id="name" placeholder="Enter Name" />
     </div>
     <div class="form-group">
       <label for="info">Additional Info</label>
-      <input type="text" id="info" placeholder="Enter Additional Info">
+      <input type="text" id="info" placeholder="Enter Additional Info" />
     </div>
     <div class="form-group">
       <label for="date">Date</label>
-      <input type="date" id="date">
+      <input type="date" id="date" />
     </div>
     <div class="form-group">
       <label for="time">Namaaz Time</label>
-      <input type="time" id="time">
+      <input type="time" id="time" />
     </div>
     <div class="form-group">
       <label for="sipara-time">Sipara Time</label>
-      <input type="time" id="sipara-time">
+      <input type="time" id="sipara-time" />
     </div>
     <div class="form-group">
       <label for="location">Location</label>
@@ -182,7 +181,7 @@
     </div>
     <div class="form-group">
       <label for="file">Image</label>
-      <input type="file" id="file">
+      <input type="file" id="file" />
     </div>
     <button onclick="generatePreview()">Generate Preview</button>
   </div>
@@ -190,17 +189,15 @@
   <div class="preview-container">
     <div id="preview" class="preview">
       <div class="logo-section">
-        <img src="Jamat Mono Color.jpg" alt="Logo">
-        <img src="image.png" alt="Header Text">
+        <img src="Jamat Mono Color.jpg" alt="Logo" />
+        <img src="image.png" alt="Header Text" />
       </div>
       <div class="logo-section">
-  <img src="Jamat Mono Color.jpg" alt="Logo">
-  <img src="/mnt/data/ea9560ed-a1f0-4fc2-a6d9-a43add67956b.png" alt="Header Text">
-</div>
-
-      <div class="golden-title">
-        Regret to Inform Sad Demise of
+        <img src="Jamat Mono Color.jpg" alt="Logo" />
+        <img src="/mnt/data/ea9560ed-a1f0-4fc2-a6d9-a43add67956b.png" alt="Header Text" />
       </div>
+
+      <div class="golden-title">Regret to Inform Sad Demise of</div>
       <div class="content-section">
         <div class="row"><label>Name:</label><span id="preview-name"></span></div>
         <div class="row"><label>Info:</label><span id="preview-info"></span></div>
@@ -208,7 +205,7 @@
         <div class="row"><label>Namaaz Time:</label><span id="preview-time"></span></div>
         <div class="row" id="sipara-row"><label>Sipara Time:</label><span id="preview-sipara-time"></span></div>
         <div class="row"><label>Location:</label><span id="preview-location"></span></div>
-        <img id="preview-image" alt="Uploaded Image">
+        <img id="preview-image" alt="Uploaded Image" />
       </div>
       <div class="footer-section">Tajheezo Takhfeen Committee</div>
     </div>
@@ -235,7 +232,8 @@
 
       document.getElementById("preview-name").textContent = name;
       document.getElementById("preview-info").textContent = info;
-      document.getElementById("preview-date").textContent = date !== "N/A" ? new Date(date).toDateString() : "N/A";
+      document.getElementById("preview-date").textContent =
+        date !== "N/A" ? new Date(date).toDateString() : "N/A";
       document.getElementById("preview-time").textContent = formatTime(time);
       document.getElementById("preview-sipara-time").textContent = formatTime(siparaTime);
       document.getElementById("preview-location").textContent = location;
