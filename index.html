@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Janaza Namaaz Form</title>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <style>
@@ -72,9 +72,13 @@
 
     .logo-section {
       display: flex;
-      flex-direction: row;
+      justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .logo-left {
+      flex: 0 0 auto;
     }
 
     .logo-left img {
@@ -83,29 +87,35 @@
     }
 
     .logo-right {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      margin-left: 15px;
+      align-items: center;
+      justify-content: start;
     }
 
     .logo-right img {
-      max-width: 200px;
+      width: 100%;
+      max-width: 250px;
       height: auto;
       margin-bottom: 5px;
+      object-fit: contain;
     }
 
     .content-section {
-      background-color: #fdf3e3;
+      background-color: #fef4e7;
       border: 2px solid #e0c785;
       padding: 10px;
       border-radius: 10px;
       margin-top: 10px;
+      word-wrap: break-word;
     }
 
     .content-section .row {
       display: flex;
       justify-content: flex-start;
       margin: 5px 0;
+      flex-wrap: wrap;
     }
 
     .content-section .row label {
@@ -116,7 +126,8 @@
 
     .content-section .row span {
       flex-grow: 1;
-      white-space: pre-wrap; /* To wrap multi-line text in Info */
+      white-space: pre-wrap;
+      word-wrap: break-word;
     }
 
     #preview-image {
@@ -149,7 +160,7 @@
       text-align: center;
       font-size: 18px;
       font-weight: bold;
-      margin-bottom: 15px;
+      margin: 10px 0;
     }
 
     .download-button {
@@ -175,28 +186,12 @@
 <body>
   <div class="container">
     <h2 class="text-center">Janaza Namaaz Form</h2>
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" id="name" placeholder="Enter Name">
-    </div>
-    <div class="form-group">
-      <label for="info">Additional Info</label>
-      <input type="text" id="info" placeholder="Enter Additional Info">
-    </div>
-    <div class="form-group">
-      <label for="date">Date</label>
-      <input type="date" id="date">
-    </div>
-    <div class="form-group">
-      <label for="time">Namaaz Time</label>
-      <input type="time" id="time">
-    </div>
-    <div class="form-group">
-      <label for="sipara-time">Sipara Time</label>
-      <input type="time" id="sipara-time">
-    </div>
-    <div class="form-group">
-      <label for="location">Location</label>
+    <div class="form-group"><label for="name">Name</label><input type="text" id="name" placeholder="Enter Name"></div>
+    <div class="form-group"><label for="info">Additional Info</label><input type="text" id="info" placeholder="Enter Additional Info"></div>
+    <div class="form-group"><label for="date">Date</label><input type="date" id="date"></div>
+    <div class="form-group"><label for="time">Namaaz Time</label><input type="time" id="time"></div>
+    <div class="form-group"><label for="sipara-time">Sipara Time</label><input type="time" id="sipara-time"></div>
+    <div class="form-group"><label for="location">Location</label>
       <select id="location">
         <option value="Badri Masjid">Badri Masjid</option>
         <option value="Najmi Masjid">Najmi Masjid</option>
@@ -205,10 +200,7 @@
         <option value="Qademi Masjid">Qademi Masjid</option>
       </select>
     </div>
-    <div class="form-group">
-      <label for="file">Image</label>
-      <input type="file" id="file">
-    </div>
+    <div class="form-group"><label for="file">Image</label><input type="file" id="file"></div>
     <button onclick="generatePreview()">Generate Preview</button>
   </div>
 
@@ -216,44 +208,27 @@
     <div id="preview" class="preview">
       <div class="logo-section">
         <div class="logo-left">
-          <img src="Jamat Mono Color.jpg" alt="Logo">
+          <img src="Jamat Mono Color.jpg" alt="Left Logo">
         </div>
         <div class="logo-right">
           <img src="ayat.png" alt="Ayat Image">
-          <img src="image.png" alt="Banner Text Image">
+          <img src="image.png" alt="Arabic Heading">
         </div>
       </div>
+
       <div class="golden-title">Regret to Inform Sad Demise of</div>
+
       <div class="content-section">
-        <div class="row">
-          <label>Name:</label>
-          <span id="preview-name"></span>
-        </div>
-        <div class="row">
-          <label>Info:</label>
-          <span id="preview-info"></span>
-        </div>
-        <div class="row">
-          <label>Date:</label>
-          <span id="preview-date"></span>
-        </div>
-        <div class="row">
-          <label>Namaaz Time:</label>
-          <span id="preview-time"></span>
-        </div>
-        <div class="row" id="sipara-row">
-          <label>Sipara Time:</label>
-          <span id="preview-sipara-time"></span>
-        </div>
-        <div class="row">
-          <label>Location:</label>
-          <span id="preview-location"></span>
-        </div>
+        <div class="row"><label>Name:</label><span id="preview-name"></span></div>
+        <div class="row"><label>Info:</label><span id="preview-info"></span></div>
+        <div class="row"><label>Date:</label><span id="preview-date"></span></div>
+        <div class="row"><label>Namaaz Time:</label><span id="preview-time"></span></div>
+        <div class="row" id="sipara-row"><label>Sipara Time:</label><span id="preview-sipara-time"></span></div>
+        <div class="row"><label>Location:</label><span id="preview-location"></span></div>
         <img id="preview-image" alt="Uploaded Image">
       </div>
-      <div class="footer-section">
-        <p>Tajheezo Takhfeen Committee (Itwari)</p>
-      </div>
+
+      <div class="footer-section">Tajheezo Takhfeen Committee (Itwari)</div>
     </div>
     <button class="download-button" onclick="downloadImage()">Download Image</button>
   </div>
