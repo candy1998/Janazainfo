@@ -61,16 +61,20 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     .logo-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      gap: 10px;
-    }
-    .logo-section img {
-      object-fit: contain;
-      max-height: 100px;
-    }
+  display: flex;
+  justify-content: center; /* Center both images horizontally */
+  align-items: center;     /* Align images vertically */
+  flex-wrap: wrap;         /* Allow images to wrap to a new line if needed */
+  gap: 10px;               /* Add spacing between the images */
+  padding: 10px;
+}
+
+.logo-section img {
+  max-height: 100px;       /* Restrict the maximum height of the images */
+  max-width: 100%;         /* Ensure images don't overflow their container */
+  object-fit: contain;     /* Keep aspect ratio intact */
+}
+
     .golden-title {
       background: linear-gradient(to right, #d4af37, #f8d66d);
       color: black;
