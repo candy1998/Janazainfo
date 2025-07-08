@@ -87,10 +87,9 @@
     }
 
     .logo-left img {
-  height: 120px; /* Increased from 80px */
-  width: auto;
-}
-
+      height: 120px;
+      width: auto;
+    }
 
     .logo-right {
       flex: 1;
@@ -118,16 +117,15 @@
     }
 
     #preview-image {
-  width: 140px;           /* Increased from 100px */
-  height: 140px;
-  object-fit: cover;
-  border: 5px solid black;
-  border-radius: 10px;
-  display: block;
-  margin: 15px auto 0 auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow added */
-}
-
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border: 5px solid black;
+      border-radius: 10px;
+      display: block;
+      margin: 15px auto 0 auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
 
     .footer-section {
       background-color: #4caf50;
@@ -141,18 +139,18 @@
       white-space: normal;
     }
 
-   .golden-title {
-  background-color: #e0c785;
-  color: #000;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 10px 0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* subtle soft shadow */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);   /* optional outer box shadow */
-}
+    .golden-title {
+      background-color: #e0c785;
+      color: #000;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
     .download-button {
       background-color: #28a745;
@@ -168,31 +166,35 @@
       margin-left: auto;
       margin-right: auto;
     }
-.content-section .row {
-  display: flex;
-  margin: 5px 0;
-  align-items: flex-start;
-}
-
-.content-section .row label {
-  font-weight: bold;
-  width: 120px; /* Adjust width as needed */
-  display: inline-block;
-}
-
-.content-section .row span {
-  flex: 1;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-#preview-name {
-  font-weight: bold;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); /* subtle dark shadow */
-  font-size: 16px;
-}
 
     .download-button:hover {
       background-color: #218838;
+    }
+
+    .content-section .row {
+      display: flex;
+      margin: 5px 0;
+      align-items: flex-start;
+    }
+
+    .content-section .row label {
+      font-weight: bold;
+      width: 120px;
+      display: inline-block;
+    }
+
+    .content-section .row span {
+      flex: 1;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* ✅ Highlight style for name */
+    .highlighted-text {
+      font-weight: bold;
+      font-size: 17px;
+      color: #000;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
   </style>
 </head>
@@ -205,7 +207,7 @@
     </div>
     <div class="form-group"><label for="date">Date</label><input type="date" id="date"></div>
     <div class="form-group"><label for="time">Namaaz Time</label><input type="time" id="time"></div>
-    <div class="form-group"><label for="sipara-time">Sipara Time</label><input type="time" id="sipara-time"></div>
+    <div class="form-group"><label for="sipara-time">Sadaqallah Time</label><input type="time" id="sipara-time"></div>
     <div class="form-group"><label for="location">Location</label>
       <select id="location">
         <option value="Badri Masjid">Badri Masjid</option>
@@ -265,7 +267,10 @@
       const location = document.getElementById("location").value;
       const fileInput = document.getElementById("file").files[0];
 
-      document.getElementById("preview-name").textContent = name;
+      const nameElement = document.getElementById("preview-name");
+      nameElement.textContent = name;
+      nameElement.classList.add("highlighted-text");
+
       document.getElementById("preview-info").textContent = info;
       document.getElementById("preview-date").textContent = new Date(date).toDateString();
       document.getElementById("preview-time").textContent = time ? formatTime(time) : "";
