@@ -87,9 +87,10 @@
     }
 
     .logo-left img {
-      height: 80px;
-      width: auto;
-    }
+  height: 100px; /* Increased from 80px */
+  width: auto;
+}
+
 
     .logo-right {
       flex: 1;
@@ -117,14 +118,16 @@
     }
 
     #preview-image {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border: 5px solid black;
-      border-radius: 10px;
-      display: block;
-      margin: 10px auto 0 auto;
-    }
+  width: 140px;           /* Increased from 100px */
+  height: 140px;
+  object-fit: cover;
+  border: 5px solid black;
+  border-radius: 10px;
+  display: block;
+  margin: 15px auto 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow added */
+}
+
 
     .footer-section {
       background-color: #4caf50;
@@ -163,21 +166,24 @@
       margin-left: auto;
       margin-right: auto;
     }
- .content-section .row {
-  display: grid;
-  grid-template-columns: 130px 1fr; /* Fixed label width, flexible content */
+.content-section .row {
+  display: flex;
   margin: 5px 0;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .content-section .row label {
   font-weight: bold;
+  width: 120px; /* Adjust width as needed */
+  display: inline-block;
 }
 
 .content-section .row span {
+  flex: 1;
   white-space: pre-wrap;
   word-break: break-word;
 }
+
 
 
     .download-button:hover {
@@ -224,10 +230,10 @@
 
       <div class="content-section">
         <div class="row"><label>Name:</label><span id="preview-name"></span></div>
-        <div class="row"><label>Info:</label><span id="preview-info"></span></div>
+        <div class="row"><label>Relative:</label><span id="preview-info"></span></div>
         <div class="row"><label>Date:</label><span id="preview-date"></span></div>
         <div class="row"><label>Namaaz Time:</label><span id="preview-time"></span></div>
-        <div class="row" id="sipara-row"><label>Sipara Time:</label><span id="preview-sipara-time"></span></div>
+        <div class="row" id="sipara-row"><label>Sadaqallah Time:</label><span id="preview-sipara-time"></span></div>
         <div class="row"><label>Location:</label><span id="preview-location"></span></div>
         <img id="preview-image" alt="Uploaded Image">
       </div>
