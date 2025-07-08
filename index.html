@@ -163,24 +163,22 @@
       margin-left: auto;
       margin-right: auto;
     }
-  .content-section .row {
-  display: flex;
+ .content-section .row {
+  display: grid;
+  grid-template-columns: 130px 1fr; /* Fixed label width, flexible content */
   margin: 5px 0;
-  align-items: flex-start;
+  align-items: start;
 }
 
 .content-section .row label {
   font-weight: bold;
-  min-width: 90px;
-  flex-shrink: 0;
-  margin-right: 5px;
 }
 
 .content-section .row span {
-  flex: 1;
   white-space: pre-wrap;
   word-break: break-word;
 }
+
 
     .download-button:hover {
       background-color: #218838;
